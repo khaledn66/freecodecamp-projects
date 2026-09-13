@@ -1,0 +1,17 @@
+{
+  "name": "a-prime-number-checker",
+  "version": "1.0.0",
+  "description": "A module for checking prime numbers",
+  "keywords": [
+    "prime",
+    "number",
+    "checker"
+  ],
+  "license": "MIT",
+  "author": "Khaled Naffaa",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
