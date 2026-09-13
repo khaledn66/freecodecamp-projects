@@ -15,6 +15,7 @@ A prime number is a whole number greater than 1 that can only be divided evenly 
 * Rejects decimal numbers.
 * Efficiently checks divisors only up to the square root of the number.
 * Exports the function using `module.exports`.
+* index.js calls test.js for excuting 
 
 ## Examples
 
