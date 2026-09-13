@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Random Joke Server</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <div class="container">
+
+    <h1>Random Joke Server</h1>
+
+    <div class="button-container">
+      <button id="jokeButton">Tell me a joke</button>
+    </div>
+
+    <div class="joke-container">
+      <p id="joke">Your joke will appear here...</p>
+    </div>
+
+  </div>
+
+  <script>
+    const button = document.getElementById("jokeButton");
+    const joke = document.getElementById("joke");
+
+    button.addEventListener("click", async () => {
+      const response = await fetch("/joke");
+      const randomJoke = await response.text();
+
+      joke.textContent = randomJoke;
+    });
+  </script>
+
+</body>
+</html>
