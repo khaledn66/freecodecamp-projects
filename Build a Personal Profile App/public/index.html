@@ -1,1 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Camper Bot - Personal Profile</title>
 
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: Arial, sans-serif;
+      background: #f4f6f8;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 800px;
+      text-align: center;
+    }
+
+    h1 {
+      margin-bottom: 40px;
+    }
+
+    .cards {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .card {
+      width: 200px;
+      padding: 30px 20px;
+      background: white;
+      border-radius: 12px;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      transition: transform 0.2s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    #answer {
+      margin-top: 40px;
+      padding: 20px;
+      min-height: 60px;
+      font-size: 18px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+
+    <h1>Camper Bot's Personal Profile</h1>
+
+    <div class="cards">
+
+      <div class="card" onclick="showAnswer('hobbies')">
+        Hobbies
+      </div>
+
+      <div class="card" onclick="showAnswer('skills')">
+        Skills
+      </div>
+
+      <div class="card" onclick="showAnswer('profile')">
+        Profile
+      </div>
+
+    </div>
+
+    <div id="answer"></div>
+
+  </div>
+
+  <script>
+   /* function showAnswer(type) {
+      const answer = document.getElementById("answer");
+
+      if (type === "hobbies") {
+        answer.textContent =
+          "I cycle, go boating, and play guitar.";
+      }
+
+      if (type === "skills") {
+        answer.textContent =
+          "JavaScript, Node.js, and Express.js!";
+      }
+
+      if (type === "profile") {
+        answer.textContent =
+          "Camper Bot — a developer who enjoys cycling, boating, and playing guitar.";
+      }
+    }
+      */
+     async function showAnswer(type) {
+  const response = await fetch("/api/profile");
+  const profile = await response.json();
+
+  const answer = document.getElementById("answer");
+
+  if (type === "hobbies") {
+    answer.textContent =
+      profile.hobbies.join(", ");
+  }
+
+  if (type === "skills") {
+    answer.textContent =
+      profile.skills.join(", ");
+  }
+
+  if (type === "profile") {
+    answer.textContent =
+      profile.name;
+  }
+}
+  </script>
+
+</body>
+</html>
