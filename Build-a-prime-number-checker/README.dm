@@ -39,7 +39,7 @@ isPrime(1);   // false
 Run the JavaScript file with Node.js:
 
 ```bash
-node filename.js
+node server.js
 ```
 
 ## Function
